@@ -129,8 +129,8 @@ public class BackgroundServices extends Service {
                     // get data from database
                     Cursor res = db.getAllData();
                     // create two list of name or pass
-                    ArrayList<String> name = new ArrayList<String>();
-                    ArrayList<String> pass = new ArrayList<String>();
+                    ArrayList<String> name = new ArrayList<>();
+                    ArrayList<String> pass = new ArrayList<>();
 
                     while (res.moveToNext()) {
                         // add data to list
@@ -151,7 +151,7 @@ public class BackgroundServices extends Service {
 
                         current_app = printForegroundTask();
                         Intent lockIntent = new Intent(mContext, LockScreen.class);
-                        lockIntent.putExtra("name", pass.get(name.indexOf(printForegroundTask())));
+                        lockIntent.putExtra("password", pass.get(name.indexOf(printForegroundTask())));
                         lockIntent.putExtra("pack", printForegroundTask());
                         lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(lockIntent);

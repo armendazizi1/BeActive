@@ -36,8 +36,12 @@ public class LockScreen extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
-            v1 = extras.getString("name");
+            v1 = extras.getString("password");
             v2 = extras.getString("pack");
+           String v3 = extras.getString("count");
+
+            Toast.makeText(LockScreen.this,  ("Current_count " + v3) , Toast.LENGTH_LONG).show();
+
 
             //The key argument here must match that used in the other activity
         }
@@ -46,7 +50,6 @@ public class LockScreen extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 if (v1.equals(t1.getText().toString())) {
 

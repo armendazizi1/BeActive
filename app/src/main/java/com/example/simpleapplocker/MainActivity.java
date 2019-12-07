@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             int zz = db.deleteData(m_Text);
                             db.insertData(m_Text);
 
-                            Toast.makeText(MainActivity.this,   "password updated successfully "  , Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,   "password updated successfully " +m_Text , Toast.LENGTH_LONG).show();
                             startActivity(new Intent(MainActivity.this,MainActivity.class));
                             finish();
 
@@ -264,4 +264,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void showCounter(View view) {
+
+        startActivity(new Intent(MainActivity.this,StepCounter.class));
+        finish();
+    }
 }
