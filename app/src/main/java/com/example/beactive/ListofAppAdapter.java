@@ -1,4 +1,4 @@
-package com.example.simpleapplocker;
+package com.example.beactive;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

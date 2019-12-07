@@ -1,4 +1,4 @@
-package com.example.simpleapplocker;
+package com.example.beactive;
 
 import android.content.ContentValues;
 import android.content.Context;

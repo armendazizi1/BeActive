@@ -11,7 +11,7 @@
         android:id="@+id/unlock_btn"
         android:layout_width="291dp"
         android:layout_height="46dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="116dp"
         android:background="@color/colorPrimaryDark"
         android:fontFamily="serif-monospace"
         android:text="Unlock"
@@ -20,23 +20,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unlock_pass" />
-
-    <EditText
-        android:id="@+id/unlock_pass"
-        android:layout_width="291dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:ems="10"
-        android:fontFamily="serif-monospace"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
-        android:textAllCaps="true"
-        android:textColor="@android:color/background_light"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/App_name" />
 
     <TextView
         android:id="@+id/App_name"
@@ -44,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:fontFamily="serif-monospace"
-        android:text="App Locker Screen"
+        android:text="BeActive"
         android:textAllCaps="true"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"

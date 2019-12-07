@@ -1,4 +1,4 @@
-package com.example.simpleapplocker;
+package com.example.beactive;
 
 import android.app.ActivityManager;
 import android.app.Notification;

@@ -1,4 +1,4 @@
-package com.example.simpleapplocker;
+package com.example.beactive;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +21,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     private final String TOTAL_KEY = "1234";
     private final String LAST_KEY = "4321";
-
+    Context mContext;
 
     SensorManager sensorManager;
     int myCount = 0;
@@ -32,9 +32,11 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private int totalCounter;
     private int lastCounter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext =this;
         setContentView(R.layout.activity_step_counter);
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
@@ -93,9 +95,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 //      Toast.makeText(this,String.valueOf(myCount),Toast.LENGTH_SHORT).show();
         totalCounter = (int) event.values[0];
 
-        Intent intent = new Intent(getBaseContext(), LockScreen.class);
-        intent.putExtra("counts", event.values[0]);
-        startActivity(intent);
+        Intent intent = new Intent(mContext, LockScreen.class);
+        intent.putExtra("counts", "ciao");
+//        startActivity(intent);
 
 
     }

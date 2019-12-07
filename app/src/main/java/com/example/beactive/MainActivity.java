@@ -1,4 +1,4 @@
-package com.example.simpleapplocker;
+package com.example.beactive;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(cn);
-                builder.setTitle("Enter Password");
+                builder.setTitle("Enter number of Steps");
 
                 // Set up the input
                 final EditText input = new EditText(cn);
@@ -98,14 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
                         if(m_Text.isEmpty()){
 
-                            Toast.makeText(MainActivity.this,   "password can't be empty", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,   "Number of steps cannot be empty", Toast.LENGTH_LONG).show();
                         }
                         else{
 
                             int zz = db.deleteData(m_Text);
                             db.insertData(m_Text);
 
-                            Toast.makeText(MainActivity.this,   "password updated successfully " +m_Text , Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,   "Number of steps updated successfully " +m_Text , Toast.LENGTH_LONG).show();
                             startActivity(new Intent(MainActivity.this,MainActivity.class));
                             finish();
 
@@ -183,10 +183,10 @@ public class MainActivity extends AppCompatActivity {
         else if(pass.isEmpty()){
 
 
-            update_pass.setText("Set Password");
+            update_pass.setText("Set number of steps");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(cn);
-            builder.setTitle("Enter Password");
+            builder.setTitle("Enter number of steps");
 
              // Set up the input
             final EditText input = new EditText(cn);
@@ -202,13 +202,13 @@ public class MainActivity extends AppCompatActivity {
 
                     if(m_Text.isEmpty()){
 
-                        Toast.makeText(MainActivity.this,   "password can't be empty", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this,   "number of steps can't be empty", Toast.LENGTH_LONG).show();
                     }
                     else{
                       boolean tt =  db.insertData(m_Text);
                       pass.add(m_Text);
-                      Toast.makeText(MainActivity.this,   "password added successfully "+m_Text, Toast.LENGTH_LONG).show();
-                      update_pass.setText("Update Password");
+                      Toast.makeText(MainActivity.this,   "number of steps added successfully "+m_Text, Toast.LENGTH_LONG).show();
+                      update_pass.setText("Update # of steps");
 
                     }
 
