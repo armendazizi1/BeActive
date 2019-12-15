@@ -28,7 +28,6 @@ import java.util.List;
 public class lockapp_activity extends AppCompatActivity {
 
 
-
     private List<Model> appList = new ArrayList<>();
     private RecyclerView recyclerView;
     private ListofAppAdapter mAdapter;
@@ -46,7 +45,6 @@ public class lockapp_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lockapp_activity);
-
 
 
         Cursor res = db.getAllData();

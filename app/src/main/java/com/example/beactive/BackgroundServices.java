@@ -44,8 +44,8 @@ public class BackgroundServices extends Service {
     static  int flag = 0 ;
     static int flag2 = 0;
 
-    // when any app is lanuch and it have password set on it
-    // that app name save in current_app varaible
+    // when any app is launch and it has password set on it
+    // that app name save in current_app variable
     String current_app = "";
 
     public BackgroundServices (){}

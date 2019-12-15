@@ -89,6 +89,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     }
 
+    // For the step counter
     @Override
     protected void onResume() {
         super.onResume();
@@ -107,6 +108,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     }
 
+    // For the step counter
     @Override
     protected void onPause() {
         super.onPause();
@@ -118,6 +120,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     }
 
+    // for the step counter
     @Override
     public void onSensorChanged(SensorEvent event) {
 
@@ -127,6 +130,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     }
 
+    // for the step counter
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
