@@ -37,7 +37,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     boolean running = false;
     private int totalCounter;
     private int lastCounter;
-
+    TextView tv_info2;
 
     Password_Database pass_db = new Password_Database(this);
 
@@ -54,6 +54,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         tv_steps = findViewById(R.id.tv_steps);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
+        tv_info2 = findViewById(R.id.tv_info2);
+
 
         Cursor res2 = pass_db.getAllData();
 
@@ -67,8 +69,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         progressBarra = findViewById(R.id.progressBarra);
         progressBarra.setMax(Integer.parseInt(pass));
+        progressBarra.setSecondaryProgress(Integer.parseInt(pass));
 
-
+        tv_info2.setText("Your Goal "+ pass);
 
 
     }
@@ -130,6 +133,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
 
         progressBarra.setProgress(totalCounter);
+
 
     }
 
