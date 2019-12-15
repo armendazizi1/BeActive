@@ -64,12 +64,36 @@ public class StatsActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        int b =  (int) event.values[0];
-        if (b > 80){
+        int b = (int) event.values[0];
+        if (b > 80) {
             ImageView goldenBridge = findViewById(R.id.GBridge);
             goldenBridge.setImageResource(R.drawable.bridge_unlock);
         }
+        if (b > 90) {
+            ImageView goldenBridge = findViewById(R.id.Bahamas);
+            goldenBridge.setImageResource(R.drawable.beach_unlock);
+        }
+        if (b > 100) {
+            ImageView goldenBridge = findViewById(R.id.Route66);
+            goldenBridge.setImageResource(R.drawable.desert_unlock);
+        }
+
+
+        if (b > 2737 * 1.6) {
+            ImageView goldenBridge = findViewById(R.id.GBridge);
+            goldenBridge.setImageResource(R.drawable.bridge_unlock);
+        }
+        if (b > 2737 * 1.6) {
+            ImageView goldenBridge = findViewById(R.id.Bahamas);
+            goldenBridge.setImageResource(R.drawable.beach_unlock);
+        }
+        if (b > 2737 * 1.6) {
+            ImageView goldenBridge = findViewById(R.id.Route66);
+            goldenBridge.setImageResource(R.drawable.desert_unlock);
+        }
     }
+
+
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
