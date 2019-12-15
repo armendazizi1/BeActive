@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -82,19 +83,30 @@ public class MainActivity extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(cn);
-                builder.setTitle("Enter number of Steps");
+                builder.setTitle("Select number of Steps");
 
                 // Set up the input
                 final EditText input = new EditText(cn);
                 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
+//                builder.setView(input);
+
+                // Number Picker
+
+                final NumberPicker input2 = new NumberPicker(cn);
+                input2.setMaxValue(11);
+                input2.setMinValue(0);
+
+               final String[] pickerVals  = new String[] {"1", "5", "10", "20", "40","60","80","100","500","1000","5000","10000"};
+               input2.setDisplayedValues(pickerVals);
+
+                builder.setView(input2);
 
                 // Set up the buttons
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        m_Text = input.getText().toString();
+                        m_Text = pickerVals[input2.getValue()];
 
                         if(m_Text.isEmpty()){
 
@@ -186,19 +198,30 @@ public class MainActivity extends AppCompatActivity {
             update_pass.setText("Set number of steps");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(cn);
-            builder.setTitle("Enter number of steps");
+            builder.setTitle("Select number of steps");
+
+
 
              // Set up the input
             final EditText input = new EditText(cn);
             // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
             input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
+//            builder.setView(input);
+
+            final NumberPicker input2 = new NumberPicker(cn);
+            input2.setMaxValue(11);
+            input2.setMinValue(0);
+
+            final String[] pickerVals  = new String[] {"1", "5", "10", "20", "40","60","80","100","500","1000","5000","10000"};
+            input2.setDisplayedValues(pickerVals);
+
+            builder.setView(input2);
 
             // Set up the buttons
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    m_Text = input.getText().toString();
+                    m_Text = pickerVals[input2.getValue()];
 
                     if(m_Text.isEmpty()){
 
