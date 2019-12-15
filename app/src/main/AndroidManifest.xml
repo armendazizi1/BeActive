@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.beactive">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"
+        android:configChanges="orientation"
+        android:screenOrientation="portrait"/>
 
     <uses-feature
         android:name="android.hardware.sensor.stepcounter"
