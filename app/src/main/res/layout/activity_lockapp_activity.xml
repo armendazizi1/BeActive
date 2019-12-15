@@ -11,14 +11,14 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
         android:fontFamily="serif-monospace"
-        android:text="Set Password on App"
+        android:text="Locked apps"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp">
+        android:textStyle="bold">
 
     </TextView>
 
