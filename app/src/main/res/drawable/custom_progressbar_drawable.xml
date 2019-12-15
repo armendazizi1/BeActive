@@ -10,7 +10,7 @@
 
 
             <gradient
-                android:endColor="#D4D4D4"
+                android:endColor="#F1F1F1"
                 android:startColor="#F1F1F1"
                 android:type="sweep" />
         </shape>
@@ -37,8 +37,8 @@
                     android:toDegrees="360" />
 
                 <gradient
-                    android:endColor="#FEFE69"
-                    android:startColor="#57E86B"
+                    android:endColor="#57E86B"
+                    android:startColor="#C5E3EC"
                     android:type="sweep" />
 
             </shape>
