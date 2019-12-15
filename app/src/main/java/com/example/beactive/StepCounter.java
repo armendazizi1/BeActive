@@ -67,6 +67,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         progressBarra = findViewById(R.id.progressBarra);
         progressBarra.setMax(Integer.parseInt(pass));
+        
 
     }
 
