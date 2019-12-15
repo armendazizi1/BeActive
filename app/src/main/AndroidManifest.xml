@@ -5,9 +5,12 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <uses-feature android:name="android.hardware.sensor.stepcounter"  android:required="true"/>
-    <uses-feature android:name="android.hardware.sensor.stepDetector"  android:required="true"/>
-
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.stepDetector"
+        android:required="true" />
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
@@ -45,7 +48,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StepCounter"></activity>
+        <activity android:name=".StatsActivity"></activity>
+        <activity android:name=".StepCounter" />
         <activity android:name=".LockScreen" />
         <activity android:name=".lockapp_activity" />
         <activity android:name=".MainActivity">

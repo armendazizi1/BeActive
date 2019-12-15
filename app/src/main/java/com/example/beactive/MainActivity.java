@@ -293,4 +293,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,StepCounter.class));
         finish();
     }
+
+    public void showStats(View view) {
+        startActivity(new Intent(MainActivity.this,StatsActivity.class));
+        finish();
+    }
 }

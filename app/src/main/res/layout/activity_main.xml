@@ -55,7 +55,7 @@
         android:id="@+id/show_step_counter"
         android:layout_width="232dp"
         android:layout_height="57dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="16dp"
         android:background="@color/colorPrimary"
         android:onClick="showCounter"
         android:text="Show Step Counter"
@@ -65,5 +65,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lock_app_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/update_pass_btn" />
+
+    <Button
+        android:id="@+id/show_step_counter2"
+        android:layout_width="232dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:onClick="showStats"
+        android:text="Show Stats"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/show_step_counter" />
 </android.support.constraint.ConstraintLayout>
