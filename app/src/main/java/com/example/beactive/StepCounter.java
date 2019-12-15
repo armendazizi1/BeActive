@@ -2,6 +2,7 @@ package com.example.beactive;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
@@ -16,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class StepCounter extends AppCompatActivity implements SensorEventListener {
+
+
+    private ProgressBar progressBarra;
 
 
     private SharedPreferences mPreferences;
@@ -34,7 +38,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private int totalCounter;
     private int lastCounter;
 
-    private ProgressBar progressBar;
 
     Password_Database pass_db = new Password_Database(this);
 
@@ -51,7 +54,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         tv_steps = findViewById(R.id.tv_steps);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
-        progressBar = findViewById(R.id.progressBar);
 
         Cursor res2 = pass_db.getAllData();
 
@@ -62,9 +64,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             pass = res2.getString(0);
         }
 
-        progressBar.setMax(Integer.parseInt(pass));
 
-
+        progressBarra = findViewById(R.id.progressBarra);
+        progressBarra.setMax(Integer.parseInt(pass));
 
     }
 
@@ -124,7 +126,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 //        startActivity(intent);
 
 
-        progressBar.setProgress(totalCounter);
+        progressBarra.setProgress(totalCounter);
 
     }
 
