@@ -2,7 +2,7 @@ package com.example.beactive;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class StatsActivity extends AppCompatActivity implements SensorEventListener {
+public class BadgeActivity extends AppCompatActivity implements SensorEventListener {
 
     private String sharedPrefFile = "com.example.StepCounter";
     SensorManager sensorManager;
@@ -20,6 +20,8 @@ public class StatsActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);     //  Fixed Portrait orientation
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
@@ -57,7 +59,7 @@ public class StatsActivity extends AppCompatActivity implements SensorEventListe
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(StatsActivity.this,MainActivity.class));
+        startActivity(new Intent(BadgeActivity.this,MainActivity.class));
         finish();
 
     }

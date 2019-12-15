@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showStats(View view) {
-        startActivity(new Intent(MainActivity.this,StatsActivity.class));
+        startActivity(new Intent(MainActivity.this, BadgeActivity.class));
         finish();
     }
 }
