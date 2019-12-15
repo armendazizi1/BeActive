@@ -161,7 +161,7 @@ public class BackgroundServices extends Service {
                 }
 
 
-                if ((!printForegroundTask().equals("com.example.simpleapplocker"))  &&  flag2 == 0 ) {
+                if ((!printForegroundTask().equals("com.example.beactive"))  &&  flag2 == 0 ) {
                     if ((!printForegroundTask().equals(current_app))) {
 
                         flag = 0;
@@ -174,7 +174,7 @@ public class BackgroundServices extends Service {
                 // then dont lanuch lock screen
                 // only one time lock screen will appear
 
-                if (printForegroundTask().equals("com.example.simpleapplocker")) {
+                if (printForegroundTask().equals("com.example.beactive")) {
 
                     flag = 2;
                 }
