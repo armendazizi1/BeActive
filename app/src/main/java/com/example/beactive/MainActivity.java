@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(pass.isEmpty()){
-                    Toast.makeText(MainActivity.this,   "First Set Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,   "First Set number of steps", Toast.LENGTH_LONG).show();
 
                 }
                 else {

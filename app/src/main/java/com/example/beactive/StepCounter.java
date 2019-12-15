@@ -1,6 +1,7 @@
 package com.example.beactive;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,12 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private int totalCounter;
     private int lastCounter;
 
+    private ProgressBar progressBar;
+
+    Password_Database pass_db = new Password_Database(this);
+
+    String pass="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,21 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         tv_steps = findViewById(R.id.tv_steps);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        progressBar = findViewById(R.id.progressBar);
+
+        Cursor res2 = pass_db.getAllData();
+
+
+
+        while (res2.moveToNext()) {
+
+            pass = res2.getString(0);
+        }
+
+        progressBar.setMax(Integer.parseInt(pass));
+
+
 
     }
 
@@ -91,14 +114,17 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         myCount++;
 //      tv_steps.setText(String.valueOf(myCount));
 
-        tv_steps.setText(String.valueOf(event.values[0]));
+
 //      Toast.makeText(this,String.valueOf(myCount),Toast.LENGTH_SHORT).show();
         totalCounter = (int) event.values[0];
+        tv_steps.setText(String.valueOf(totalCounter));
 
         Intent intent = new Intent(mContext, LockScreen.class);
         intent.putExtra("counts", "ciao");
 //        startActivity(intent);
 
+
+        progressBar.setProgress(totalCounter);
 
     }
 
