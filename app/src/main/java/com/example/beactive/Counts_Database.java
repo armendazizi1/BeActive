@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Password_Database extends SQLiteOpenHelper {
+public class Counts_Database extends SQLiteOpenHelper {
 
 
     // this is database class, database is sqlite
@@ -22,7 +22,7 @@ public class Password_Database extends SQLiteOpenHelper {
 
 
     // constructor
-    public Password_Database(Context context) {
+    public Counts_Database(Context context) {
         super(context, DATABASE_NAME, null, 1);
         // SQLiteDatabase db = this.getWritableDatabase();
 

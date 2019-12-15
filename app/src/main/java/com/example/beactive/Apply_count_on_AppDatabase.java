@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Apply_password_on_AppDatabase extends SQLiteOpenHelper {
+public class Apply_count_on_AppDatabase extends SQLiteOpenHelper {
 
     // this is database class, database is sqlite
     // embedded in android studio
@@ -21,7 +21,7 @@ public class Apply_password_on_AppDatabase extends SQLiteOpenHelper {
     public static final String col2 = "password";
 
     // constructor
-    public Apply_password_on_AppDatabase(Context context) {
+    public Apply_count_on_AppDatabase(Context context) {
         super(context, DATABASE_NAME, null, 1);
        // SQLiteDatabase db = this.getWritableDatabase();
 

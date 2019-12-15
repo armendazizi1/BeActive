@@ -2,7 +2,6 @@ package com.example.beactive;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Context;
@@ -73,7 +72,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         tv_info2.setText("Your Goal "+ pass);
 
-
     }
 
     @Override
@@ -133,6 +131,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
 
         progressBarra.setProgress(totalCounter);
+        progressBarra.setSecondaryProgress(100);
 
 
     }

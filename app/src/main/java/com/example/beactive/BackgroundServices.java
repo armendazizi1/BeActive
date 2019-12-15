@@ -36,7 +36,7 @@ public class BackgroundServices extends Service {
     // i will use context of NotificationService class
     Context mContext;
     // database class
-    Apply_password_on_AppDatabase db = new Apply_password_on_AppDatabase(this);
+    Apply_count_on_AppDatabase db = new Apply_count_on_AppDatabase(this);
 
 
     // flag is used for stopping or running loop check of

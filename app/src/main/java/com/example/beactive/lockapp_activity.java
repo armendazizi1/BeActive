@@ -1,25 +1,16 @@
 package com.example.beactive;
 
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,8 +24,8 @@ public class lockapp_activity extends AppCompatActivity {
     private ListofAppAdapter mAdapter;
 
 
-    Apply_password_on_AppDatabase db = new Apply_password_on_AppDatabase(this);
-    Password_Database pass_db = new Password_Database(this);
+    Apply_count_on_AppDatabase db = new Apply_count_on_AppDatabase(this);
+    Counts_Database pass_db = new Counts_Database(this);
 
     List<String> lock = new ArrayList<>();
 
