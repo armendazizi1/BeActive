@@ -292,7 +292,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Method for the showCounter button
     public void showCounter(View view) {
-
         startActivity(new Intent(MainActivity.this,StepCounter.class));
         finish();
     }
