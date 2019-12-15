@@ -77,6 +77,19 @@ public class StatsActivity extends AppCompatActivity implements SensorEventListe
             ImageView goldenBridge = findViewById(R.id.Route66);
             goldenBridge.setImageResource(R.drawable.desert_unlock);
         }
+        if (b > 110) {
+            ImageView goldenBridge = findViewById(R.id.K2);
+            goldenBridge.setImageResource(R.drawable.mountain_unlock);
+        }
+        if (b > 120) {
+            ImageView goldenBridge = findViewById(R.id.Waterfall);
+            goldenBridge.setImageResource(R.drawable.waterfall_unlock);
+        }
+        if (b > 130) {
+            ImageView goldenBridge = findViewById(R.id.Sahara);
+            goldenBridge.setImageResource(R.drawable.desert_unlock_2);
+        }
+
 
 
         if (b > 2737 * 1.6) {
