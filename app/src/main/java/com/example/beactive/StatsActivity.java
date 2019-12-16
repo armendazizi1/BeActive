@@ -20,7 +20,7 @@ public class StatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
         tv = findViewById(R.id.stats_tv);
-        
+
 
         List<Integer> stats = new ArrayList<>();
         List<String> stats_days = new ArrayList<>();

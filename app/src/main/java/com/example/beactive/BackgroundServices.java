@@ -147,8 +147,6 @@ public class BackgroundServices extends Service {
                         flag = 1;
 
 
-
-
                         current_app = printForegroundTask();
                         Intent lockIntent = new Intent(mContext, LockScreen.class);
                         lockIntent.putExtra("password", pass.get(name.indexOf(printForegroundTask())));

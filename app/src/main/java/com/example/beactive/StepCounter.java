@@ -20,7 +20,6 @@ import java.util.Date;
 
 public class StepCounter extends AppCompatActivity implements SensorEventListener {
 
-
     private ProgressBar progressBarra;
 
 
