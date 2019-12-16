@@ -11,6 +11,10 @@ import java.util.List;
 
 import android.os.Bundle;
 
+
+// barchart credits: https://medium.com/@karthikganiga007/create-barchart-in-android-studio-14943339a211
+
+
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -57,7 +61,7 @@ public class StatsActivity extends AppCompatActivity {
 //        entries.add(new BarEntry(199, 6));
 
         int sum = 0;
-        for (int i = 0; i<7; i++){
+        for (int i = 0; (i<7 && i< stats.size()); i++){
             sum+= stats.get(i);
             entries.add(new BarEntry(stats.get(i), i));
 //            tv.setText(tv.getText() + "\n" + stats_days.get(i) + " - "+ String.valueOf(stats.get(i))  + "\n");
