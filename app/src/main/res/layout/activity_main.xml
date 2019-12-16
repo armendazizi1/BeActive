@@ -20,16 +20,17 @@
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/lock_app_btn"
+        android:background = "@drawable/corners"
 
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
 
-        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/lock_icon"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
@@ -51,15 +52,13 @@
         android:id="@+id/update_pass_btn"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:background = "@drawable/corners"
+
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/settings_icon"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
         android:text="Set step goal"
-
-
-
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -69,10 +68,10 @@
 
     <Button
         android:id="@+id/show_step_counter"
+        android:background = "@drawable/corners"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/step_icon"
         android:onClick="showCounter"
         android:paddingLeft="30dip"
@@ -90,12 +89,13 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/badge_icon"
         android:onClick="showBadges"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
         android:text="Achievements"
+        android:background = "@drawable/corners"
+
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -104,11 +104,12 @@
         app:layout_constraintTop_toBottomOf="@+id/show_stats" />
 
     <Button
+        android:background = "@drawable/corners"
+
         android:id="@+id/show_stats"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@drawable/stats_icon"
         android:onClick="showStats"
         android:paddingLeft="30dip"
