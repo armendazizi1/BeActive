@@ -90,9 +90,9 @@ public class Stats_Database extends SQLiteOpenHelper {
 
 
     // delete data from table
-    public Integer deleteData(int stat){
+    public Integer deleteData(String day){
         SQLiteDatabase db = this.getWritableDatabase();
-        int i = db.delete(TABLE_NAME, col1 +" =?",new String[]{String.valueOf(stat)});
+        int i = db.delete(TABLE_NAME, col2 +" =?",new String[]{day});
         return i;
     }
 
