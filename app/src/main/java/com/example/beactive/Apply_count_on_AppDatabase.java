@@ -75,7 +75,6 @@ public class Apply_count_on_AppDatabase extends SQLiteOpenHelper {
 
 
     // update data in table
-
     public boolean updateData(String name, String pass){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -83,7 +82,6 @@ public class Apply_count_on_AppDatabase extends SQLiteOpenHelper {
         db.update(TABLE_NAME,contentValues, col1+" =?", new String[]{name});
         return true;
     }
-
 
 
     // delete data from table

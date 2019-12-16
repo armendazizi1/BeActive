@@ -18,6 +18,8 @@ public class Stats_Database extends SQLiteOpenHelper {
     // columns
     public static final String col1 = "stats";
 
+    public static final String col2 = "day";
+
 
     // constructor
     public Stats_Database(Context context) {
@@ -29,7 +31,7 @@ public class Stats_Database extends SQLiteOpenHelper {
     // create table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( stats INTEGER )  ");
+        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( stats INTEGER, day TEXT )  ");
     }
 
 
@@ -40,11 +42,12 @@ public class Stats_Database extends SQLiteOpenHelper {
 
 
     // insert data into table
-    public boolean insertData(int stat) {
+    public boolean insertData(int stat, String date) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(col1,stat);
+        contentValues.put(col2,date);
 
 
         long result = db.insert(TABLE_NAME, null ,contentValues);

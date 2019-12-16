@@ -3,6 +3,7 @@ package com.example.beactive;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -15,6 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class LockScreen extends AppCompatActivity implements SensorEventListener {
 
     private SharedPreferences mPreferences;
@@ -23,11 +27,17 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
     boolean running = false;
 
     Button btn;
-//    EditText t1;
     TextView status;
     public int v_int;
 
     public int step_counter=0;
+    private int stats_count = 0;
+
+    Stats_Database stats_db = new Stats_Database(this);
+
+    private int total_count_so_dar = 0;
+
+    private int minutes;
 
     String v1 , v2, v3;
     public LockScreen(){
@@ -39,9 +49,8 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lock_screen);
 
-        btn = (Button)findViewById(R.id.unlock_btn);
-//       t1 = (EditText)findViewById(R.id.unlock_pass);
-        status = (TextView)findViewById(R.id.App_name);
+        btn = (Button) findViewById(R.id.unlock_btn);
+        status = (TextView) findViewById(R.id.App_name);
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -86,6 +95,20 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         });
 
 
+        // get the database stats
+
+        Cursor res = stats_db.getAllData();
+        while (res.moveToNext()) {
+            stats_count = res.getInt(0);
+            total_count_so_dar += stats_count;
+        }
+
+
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        minutes = cal.get(Calendar.MINUTE);
+
 
     }
 
@@ -125,7 +148,21 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
     public void onSensorChanged(SensorEvent event) {
 
 //        Toast.makeText(this,String.valueOf(event.values[0]),Toast.LENGTH_SHORT).show();
-        step_counter = (int)Double.parseDouble(String.valueOf(event.values[0]));
+        step_counter = (int)Double.parseDouble(String.valueOf(event.values[0])) - total_count_so_dar;
+
+
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int current_minutes = cal.get(Calendar.MINUTE);
+
+        // update the counter after 2 minutes
+        if (current_minutes != minutes) {
+//            stats_db.insertData(step_counter);
+            total_count_so_dar += step_counter;
+//            Toast.makeText(this, String.valueOf(current_minutes), Toast.LENGTH_SHORT).show();
+            minutes = current_minutes;
+        }
 
 
     }

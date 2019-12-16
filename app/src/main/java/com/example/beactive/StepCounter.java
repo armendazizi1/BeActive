@@ -43,13 +43,20 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     Counts_Database pass_db = new Counts_Database(this);
 
-    String pass="";
+    String pass = "";
+
+    Stats_Database stats_db = new Stats_Database(this);
+
+    private int stats_count = 0;
+    private int minutes;
+
+    private int total_count_so_dar = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext =this;
+        mContext = this;
         setContentView(R.layout.activity_step_counter);
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
@@ -68,12 +75,29 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             pass = res2.getString(0);
         }
 
+//        stats_db.deleteAll();
+
+
+        Cursor res = stats_db.getAllData();
+        while (res.moveToNext()) {
+            stats_count = res.getInt(0);
+            total_count_so_dar += stats_count;
+        }
+
 
         progressBarra = findViewById(R.id.progressBarra);
         progressBarra.setMax(Integer.parseInt(pass));
         progressBarra.setSecondaryProgress(Integer.parseInt(pass));
 
-        tv_info2.setText("Your Goal "+ pass);
+        tv_info2.setText("Your Goal " + pass);
+
+
+        // code for daily statistics
+
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        minutes = cal.get(Calendar.MINUTE);
 
     }
 
@@ -92,7 +116,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         }
 
 
-        myCount = mPreferences.getInt(COUNT_KEY,0) + (totalCounter - myCount);
+        myCount = mPreferences.getInt(COUNT_KEY, 0) + (totalCounter - myCount);
 
     }
 
@@ -100,7 +124,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     protected void onPause() {
         super.onPause();
         running = false;
-
 
 
         // saving the data
@@ -117,18 +140,25 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        myCount++;
-//      tv_steps.setText(String.valueOf(myCount));
-//      Toast.makeText(this,String.valueOf(myCount),Toast.LENGTH_SHORT).show();
-        totalCounter = (int) event.values[0];
-        tv_steps.setText(String.valueOf(myCount));
+
+        totalCounter = (int) event.values[0] - total_count_so_dar;
+        tv_steps.setText(String.valueOf(totalCounter));
 
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        int hours = cal.get(Calendar.MINUTE);
+        int current_minutes = cal.get(Calendar.MINUTE);
+        int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
-       Toast.makeText(this,String.valueOf(totalCounter),Toast.LENGTH_SHORT).show();
+        String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+
+        // update the counter after 2 minutes
+        if (current_minutes != minutes) {
+            stats_db.insertData(totalCounter,days[current_day]);
+            total_count_so_dar += totalCounter;
+            Toast.makeText(this, String.valueOf(current_minutes), Toast.LENGTH_SHORT).show();
+            minutes = current_minutes;
+        }
 
         progressBarra.setProgress(totalCounter);
         progressBarra.setSecondaryProgress(100);
@@ -143,7 +173,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(StepCounter.this,MainActivity.class));
+        startActivity(new Intent(StepCounter.this, MainActivity.class));
         finish();
 
     }
