@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AppAdapter extends BaseAdapter {
 
-    // get icon or name from android devices
+    // get stats_icon or name from android devices
 
     private LayoutInflater layoutInflater; // used for layout
     private List<AppList> listStorage;     // class used as list
@@ -49,7 +49,7 @@ public class AppAdapter extends BaseAdapter {
             listViewHolder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.installed_app_list, parent, false);
 
-            // get name or icon
+            // get name or stats_icon
             // or return view
             listViewHolder.textInListView = (TextView)convertView.findViewById(R.id.list_app_name);
             listViewHolder.imageInListView = (ImageView)convertView.findViewById(R.id.app_icon);
@@ -71,7 +71,7 @@ public class AppAdapter extends BaseAdapter {
 
     static class ViewHolder{
 
-        // view contain two things name or icon
+        // view contain two things name or stats_icon
 
         TextView textInListView;
         ImageView imageInListView;

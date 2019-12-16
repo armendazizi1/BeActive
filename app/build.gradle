@@ -35,6 +35,7 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    implementation 'info.androidhive:fontawesome:0.0.5'
 
 
 }

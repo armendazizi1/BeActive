@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 public class AppList {
 
-    // class for list of app ( it contains name or icon )
+    // class for list of app ( it contains name or stats_icon )
 
     private String name;
     Drawable icon;
