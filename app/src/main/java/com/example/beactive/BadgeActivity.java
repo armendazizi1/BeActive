@@ -23,7 +23,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);     //  Fixed Portrait orientation
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stats);
+        setContentView(R.layout.activity_badge);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
     }

@@ -78,18 +78,32 @@
         android:id="@+id/show_step_counter2"
         android:layout_width="200dp"
         android:layout_height="70dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:background="@drawable/corners"
+        android:onClick="showBadges"
+        android:text="Achievements"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/show_stats" />
+
+    <Button
+        android:id="@+id/show_stats"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/corners"
         android:onClick="showStats"
-        android:text="Your Badges"
+        android:text="Show Stats"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/show_step_counter" />
 
     <ImageView

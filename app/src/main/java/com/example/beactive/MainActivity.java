@@ -292,8 +292,13 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void showStats(View view) {
+    public void showBadges(View view) {
         startActivity(new Intent(MainActivity.this, BadgeActivity.class));
+        finish();
+    }
+
+    public void showStats(View view) {
+        startActivity(new Intent(MainActivity.this, StatsActivity.class));
         finish();
     }
 }

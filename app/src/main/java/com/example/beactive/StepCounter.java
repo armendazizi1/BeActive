@@ -15,6 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class StepCounter extends AppCompatActivity implements SensorEventListener {
 
 
@@ -24,18 +27,18 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private SharedPreferences mPreferences;
     private String sharedPrefFile = "com.example.StepCounter";
 
-    private final String TOTAL_KEY = "1234";
-    private final String LAST_KEY = "4321";
+
+    private final String COUNT_KEY = "4661";
+
     Context mContext;
 
     SensorManager sensorManager;
-    int myCount = 0;
+    int myCount;
 
     TextView tv_steps;
 
     boolean running = false;
     private int totalCounter;
-    private int lastCounter;
     TextView tv_info2;
 
     Counts_Database pass_db = new Counts_Database(this);
@@ -54,11 +57,11 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         tv_info2 = findViewById(R.id.tv_info2);
-
+//        myCount = mPreferences.getInt(COUNT_KEY,0);
 
         Cursor res2 = pass_db.getAllData();
 
-
+//        myCount = 0;
 
         while (res2.moveToNext()) {
 
@@ -88,11 +91,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
             Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
         }
 
-        totalCounter = mPreferences.getInt(TOTAL_KEY, 0);
-        lastCounter = mPreferences.getInt(LAST_KEY, 0);
 
-        int increase = totalCounter - lastCounter;
-        myCount += increase;
+        myCount = mPreferences.getInt(COUNT_KEY,0) + (totalCounter - myCount);
 
     }
 
@@ -100,13 +100,12 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     protected void onPause() {
         super.onPause();
         running = false;
-        lastCounter = totalCounter;
+
 
 
         // saving the data
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-        preferencesEditor.putInt(TOTAL_KEY, totalCounter);
-        preferencesEditor.putInt(LAST_KEY, lastCounter);
+        preferencesEditor.putInt(COUNT_KEY, myCount);
         preferencesEditor.apply();
 
 
@@ -115,24 +114,24 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     }
 
+
     @Override
     public void onSensorChanged(SensorEvent event) {
         myCount++;
 //      tv_steps.setText(String.valueOf(myCount));
-
-
 //      Toast.makeText(this,String.valueOf(myCount),Toast.LENGTH_SHORT).show();
         totalCounter = (int) event.values[0];
-        tv_steps.setText(String.valueOf(totalCounter));
+        tv_steps.setText(String.valueOf(myCount));
 
-        Intent intent = new Intent(mContext, LockScreen.class);
-        intent.putExtra("counts", "ciao");
-//        startActivity(intent);
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int hours = cal.get(Calendar.MINUTE);
 
+       Toast.makeText(this,String.valueOf(totalCounter),Toast.LENGTH_SHORT).show();
 
         progressBarra.setProgress(totalCounter);
         progressBarra.setSecondaryProgress(100);
-
 
     }
 
