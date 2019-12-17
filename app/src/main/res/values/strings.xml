@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BeActive</string>
     <string name="be_active">BeActive</string>
+    <string name="your_goal">Your Goal:</string>
 </resources>

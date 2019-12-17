@@ -93,7 +93,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         progressBarra.setMax(Integer.parseInt(pass));
         progressBarra.setSecondaryProgress(Integer.parseInt(pass));
 
-        tv_info2.setText("Your Goal " + pass);
+        tv_info2.setText("Your Goal: " + pass);
 
 
     }

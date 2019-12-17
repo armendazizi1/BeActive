@@ -14,7 +14,11 @@
         android:id="@+id/tv_info2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Goal" />
+        android:fontFamily="@font/megrim"
+        android:text="@string/your_goal"
+        android:textColor="@color/colorAccent"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <ProgressBar
 
@@ -41,12 +45,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="0"
-        android:textSize="40dp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Steps" />
+        android:fontFamily="@font/megrim"
+        android:text="Steps"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
 
 </LinearLayout>
