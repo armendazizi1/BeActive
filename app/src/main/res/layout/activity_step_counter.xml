@@ -53,7 +53,7 @@
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/megrim"
+        android:fontFamily="sans-serif-thin"
         android:text="Steps"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />
