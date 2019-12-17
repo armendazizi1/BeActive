@@ -69,7 +69,7 @@ public class lockapp_activity extends AppCompatActivity {
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
 
-
+            // Locks/Unlocks apps on click event.
             @Override
             public void onClick(View view, int position) {
 
@@ -102,7 +102,7 @@ public class lockapp_activity extends AppCompatActivity {
 
 
 
-
+    // Retrieves the list of apps installed on the device.
     private List<AppList> getInstalledApps() {
         List<AppList> res = new ArrayList<AppList>();
         List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
@@ -137,11 +137,12 @@ public class lockapp_activity extends AppCompatActivity {
         return res;
     }
 
-
+    // checks if the app is a systemPackage
     private boolean isSystemPackage(PackageInfo pkgInfo) {
         return ((pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) ? true : false;
     }
 
+    // returns to MainActivity on Back pressed.
     @Override
     public void onBackPressed() {
 

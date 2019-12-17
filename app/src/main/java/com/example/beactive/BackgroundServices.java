@@ -44,7 +44,7 @@ public class BackgroundServices extends Service {
     static  int flag = 0 ;
     static int flag2 = 0;
 
-    // when any app is launch and it has password set on it
+    // when any app is launch and it has step counter set on it
     // that app name save in current_app variable
     String current_app = "";
 
@@ -139,7 +139,7 @@ public class BackgroundServices extends Service {
                         pass.add(res.getString(1));
                     }
 
-                    // if current app have password set on it
+                    // if current app have step count set on it
                     // lanuch lock screen
 
                     if (name.contains(printForegroundTask())) {
@@ -149,7 +149,7 @@ public class BackgroundServices extends Service {
 
                         current_app = printForegroundTask();
                         Intent lockIntent = new Intent(mContext, LockScreen.class);
-                        lockIntent.putExtra("password", pass.get(name.indexOf(printForegroundTask())));
+                        lockIntent.putExtra("steps", pass.get(name.indexOf(printForegroundTask())));
                         lockIntent.putExtra("pack", printForegroundTask());
                         lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(lockIntent);
