@@ -270,7 +270,6 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 1; i<8; i++){
                 stats_db.insertData(i,10);
-                Log.d("Armned","\n\nenteredHERE \n\n\n");
                 stats.add(new Pair<Integer, Integer>(i,10));
             }
 
@@ -278,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             int current_day = cal.get(Calendar.DAY_OF_WEEK);
+            stats.add(new Pair<Integer, Integer>(current_day+10,10));
 
             stats_db.insertData((current_day+10),10);
         }
