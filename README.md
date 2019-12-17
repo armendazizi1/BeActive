@@ -11,7 +11,7 @@ You need to have Android studio version 4.5 installed on your machine
 
 ## Running the program
 
-From Android Studio just build the project and run the emulator.
+From Android Studio just build the project and run the app on a real phone(not an emulator), because the sensors work only on real physical devices.
 
 
 
