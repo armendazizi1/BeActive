@@ -40,7 +40,7 @@ android.permission.SYSTEM_ALERT_WINDOW
 android.permission.BROADCAST_PACKAGE_ADDED
 ```
  
-## Provides the following features:
+## Provides the following features
  
 
 ```
@@ -52,11 +52,19 @@ Shows the step progress
 Shows achievements that are badge rewards to the users for surpassing a certain number of steps
 ```
  
-
+ 
 
 ## Built With
 
 * [Android Studio](https://developer.android.com/studio) - System software
+
+## Resources
+```
+
+* App Locker activity[https://www.codervlog.com/2019/03/how-to-make-app-locker-in-android.html]( https://www.codervlog.com/2019/03/how-to-make-app-locker-in-android.html) 
+* Step counter activity [https://www.youtube.com/watch?v=CNGMWnmldaU]( https://www.youtube.com/watch?v=CNGMWnmldaU) 
+* Bar chart for statistics [https://medium.com/@karthikganiga007/create-barchart-in-android-studio-14943339a211](https://medium.com/@karthikganiga007/create-barchart-in-android-studio-14943339a211) 
+```
 
 
 ## Authors
