@@ -10,11 +10,10 @@
     <android.support.design.button.MaterialButton
         android:id="@+id/unlock_btn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="291dp"
+        android:layout_width="200dp"
         android:layout_height="55dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorPrimaryDark"
-        android:drawableLeft="@drawable/unlock"
 
         android:drawableTint="@color/colorPrimaryDark"
         android:fontFamily="serif-monospace"
@@ -23,7 +22,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:theme="@style/Theme.MaterialComponents"
-        app:icon="@drawable/unlock"
+        app:icon="@drawable/lock_icon"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,28 +33,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="@font/megrim"
         android:text="BeActive"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/access_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:fontFamily="serif-monospace"
-        android:textAllCaps="true"
-        android:textColor="#FFFF5F9A"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unlock_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/unlock_btn"
+        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>
