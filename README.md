@@ -59,12 +59,11 @@ Shows achievements that are badge rewards to the users for surpassing a certain 
 * [Android Studio](https://developer.android.com/studio) - System software
 
 ## Resources
-```
 
 * [https://www.codervlog.com/2019/03/how-to-make-app-locker-in-android.html]( https://www.codervlog.com/2019/03/how-to-make-app-locker-in-android.html) - App Locker activity
 * [https://www.youtube.com/watch?v=CNGMWnmldaU]( https://www.youtube.com/watch?v=CNGMWnmldaU) -Step counter activity 
 * [https://medium.com/@karthikganiga007/create-barchart-in-android-studio-14943339a211](https://medium.com/@karthikganiga007/create-barchart-in-android-studio-14943339a211) -Bar chart for statistics 
-```
+
 
 
 ## Authors
