@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button lockapp , update_pass;
-    Counts_Database db = new Counts_Database(this);
+    StepCounts_Database db = new StepCounts_Database(this);
     List<String> pass = new ArrayList<>();
     String m_Text="";
     Context cn;

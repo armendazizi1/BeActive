@@ -25,7 +25,7 @@ public class lockapp_activity extends AppCompatActivity {
 
 
     Apply_count_on_AppDatabase db = new Apply_count_on_AppDatabase(this);
-    Counts_Database pass_db = new Counts_Database(this);
+    StepCounts_Database pass_db = new StepCounts_Database(this);
 
     List<String> lock = new ArrayList<>();
 

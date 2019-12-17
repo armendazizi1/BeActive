@@ -40,7 +40,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private int totalCounter;
     TextView tv_info2;
 
-    Counts_Database pass_db = new Counts_Database(this);
+    StepCounts_Database pass_db = new StepCounts_Database(this);
 
     String pass = "";
 
