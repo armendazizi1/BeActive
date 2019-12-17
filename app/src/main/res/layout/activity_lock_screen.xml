@@ -7,17 +7,24 @@
     android:background="@color/colorPrimary"
     tools:context=".LockScreen">
 
-    <Button
+    <android.support.design.button.MaterialButton
         android:id="@+id/unlock_btn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="116dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="100dp"
         android:background="@color/colorPrimaryDark"
+        android:drawableLeft="@drawable/unlock"
+
+        android:drawableTint="@color/colorPrimaryDark"
         android:fontFamily="serif-monospace"
         android:text="Unlock"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
+        app:icon="@drawable/unlock"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/App_name" />
@@ -26,11 +33,11 @@
         android:id="@+id/App_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="serif-monospace"
         android:text="BeActive"
         android:textAllCaps="true"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorAccent"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

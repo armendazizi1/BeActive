@@ -7,96 +7,77 @@
     android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/be_active"
-        android:textColor="@color/colorAccent"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.design.button.MaterialButton
         android:id="@+id/lock_app_btn"
-        app:iconTint="@color/colorPrimaryDark"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
 
         android:layout_width="250dp"
         android:layout_height="55dp"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
+
+        android:background="@android:color/transparent"
         android:drawableLeft="@drawable/lock_icon"
         android:paddingLeft="30dip"
-
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:background="@android:color/transparent"
-        app:strokeColor="@color/colorPrimaryDark"
-        android:theme="@style/Theme.MaterialComponents"
-
         android:paddingRight="26dip"
+
         android:shadowColor="#00000000"
         android:shadowDx="10"
-
         android:shadowDy="10"
+
         android:shadowRadius="10"
         android:text="Lock apps"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
         app:icon="@drawable/lock_icon"
+        app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:strokeColor="@color/colorPrimaryDark" />
 
 
     <android.support.design.button.MaterialButton
         android:id="@+id/update_pass_btn"
-        app:iconTint="@color/colorPrimaryDark"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
 
         android:layout_width="250dp"
         android:layout_height="55dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
 
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:background="@android:color/transparent"
-        app:strokeColor="@color/colorPrimaryDark"
-        android:theme="@style/Theme.MaterialComponents"
-
-
         android:drawableLeft="@drawable/settings_icon"
         android:paddingLeft="30dip"
-
         android:paddingRight="26dip"
+
+
         android:text="Set step goal"
         android:textColor="@color/colorPrimaryDark"
+
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
         app:icon="@drawable/settings_icon"
+        app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lock_app_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/lock_app_btn"
+        app:strokeColor="@color/colorPrimaryDark" />
 
     <android.support.design.button.MaterialButton
         android:id="@+id/show_step_counter"
-        android:layout_width="250dp"
-        app:iconTint="@color/colorPrimaryDark"
-
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:background="@android:color/transparent"
-        app:strokeColor="@color/colorPrimaryDark"
-        android:theme="@style/Theme.MaterialComponents"
+        android:layout_width="250dp"
 
         android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
         android:drawableLeft="@drawable/step_icon"
+
         android:onClick="showCounter"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
@@ -104,71 +85,87 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
         app:icon="@drawable/step_icon"
+        app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_pass_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/update_pass_btn"
+        app:strokeColor="@color/colorPrimaryDark" />
 
     <android.support.design.button.MaterialButton
-        app:icon="@drawable/badge_icon"
         android:id="@+id/show_step_counter2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
         android:drawableLeft="@drawable/badge_icon"
         android:onClick="showBadges"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
         android:text="Achievements"
-        app:iconTint="@color/colorPrimaryDark"
-
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:background="@android:color/transparent"
-        app:strokeColor="@color/colorPrimaryDark"
-        android:theme="@style/Theme.MaterialComponents"
 
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
+
+        app:icon="@drawable/badge_icon"
+        app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_stats" />
+        app:layout_constraintTop_toBottomOf="@+id/show_stats"
+        app:strokeColor="@color/colorPrimaryDark" />
 
     <android.support.design.button.MaterialButton
         android:id="@+id/show_stats"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
         android:layout_width="250dp"
 
         android:layout_height="55dp"
-
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
-        app:strokeColor="@color/colorPrimaryDark"
-        android:theme="@style/Theme.MaterialComponents"
-        app:iconTint="@color/colorPrimaryDark"
-
-        android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/stats_icon"
         android:onClick="showStats"
+
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
         android:text="Show Stats"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:theme="@style/Theme.MaterialComponents"
         app:icon="@drawable/stats_icon"
+        app:iconTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_step_counter" />
+        app:layout_constraintTop_toBottomOf="@+id/show_step_counter"
+        app:strokeColor="@color/colorPrimaryDark" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_step_counter2"
         app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/megrim"
+        android:text="@string/be_active"
+        android:textColor="@color/colorAccent"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
