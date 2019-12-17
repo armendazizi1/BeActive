@@ -71,10 +71,10 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
             @Override
             public void onClick(View v) {
 
-
+                // this is the step count goal
                 v_int = (int) Integer.parseInt(v1);
 
-//                if (v1.equals(t1.getText().toString())) {
+                // check if the user has reached their goal
                 if (v_int <= step_counter) {
 
                     Intent launchIntent = getPackageManager().getLaunchIntentForPackage(v2);
@@ -83,10 +83,9 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
                     finish();
                     Toast.makeText(LockScreen.this, "You reached your Goal!", Toast.LENGTH_LONG).show();
 
-
+                    // Otherwise show a Toast with the number of steps required to reach the goal
                 } else {
                     Toast.makeText(LockScreen.this, (v_int - step_counter) + " steps to go", Toast.LENGTH_LONG).show();
-//                    t1.setText("");
                 }
 
             }
@@ -95,7 +94,6 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
 
         // get the database stats
-
         Cursor res = stats_db.getAllData();
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
@@ -144,21 +142,20 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-//        Toast.makeText(this,String.valueOf(event.values[0]),Toast.LENGTH_SHORT).show();
         step_counter = (int) Double.parseDouble(String.valueOf(event.values[0])) - total_count_so_dar;
 
-
+        // get the current day
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        int current_minutes = cal.get(Calendar.MINUTE);
         int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
-
+        // if the day has changed, save the number of steps of that day in the database
+        // and update the today to equal the current day.
         if (current_day != today) {
-            stats_db.updateData(current_day,step_counter);
+            stats_db.updateData(current_day, step_counter);
             total_count_so_dar += step_counter;
-            stats_db.updateData(today+10, current_day+10);
+            stats_db.updateData(today + 10, current_day + 10);
             today = current_day;
         }
 
