@@ -21,22 +21,22 @@ import java.util.Date;
 
 public class LockScreen extends AppCompatActivity implements SensorEventListener {
 
-    private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.example.StepCounter";
+
     SensorManager sensorManager;
     boolean running = false;
 
+    // the unlock button when you open a locked app
     Button btn;
     TextView status;
     public int v_int;
 
-    public int step_counter = 0;
+    private int step_counter = 0;
     private int stats_count = 0;
 
     Stats_Database stats_db = new Stats_Database(this);
 
-    private int total_count_so_dar = 0;
 
+    private int total_count_so_dar = 0;
     private int today;
 
     String v1, v2;
@@ -53,7 +53,6 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         btn = (Button) findViewById(R.id.unlock_btn);
         status = (TextView) findViewById(R.id.App_name);
 
-        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         // v1 and v2 get data from background services

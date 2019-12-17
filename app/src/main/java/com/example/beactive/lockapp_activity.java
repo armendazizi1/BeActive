@@ -23,13 +23,15 @@ public class lockapp_activity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ListofAppAdapter mAdapter;
 
-
+    // database of locked apps
     Apply_count_on_AppDatabase db = new Apply_count_on_AppDatabase(this);
-    StepCounts_Database pass_db = new StepCounts_Database(this);
+
+    // databaae of saved step count goal.
+    StepCounts_Database step_count_db = new StepCounts_Database(this);
 
     List<String> lock = new ArrayList<>();
 
-    String pass="";
+    String step_count_goal="";
 
 
     @Override
@@ -39,7 +41,7 @@ public class lockapp_activity extends AppCompatActivity {
 
 
         Cursor res = db.getAllData();
-        Cursor res2 = pass_db.getAllData();
+        Cursor res2 = step_count_db.getAllData();
 
 
         while (res.moveToNext()) {
@@ -49,7 +51,7 @@ public class lockapp_activity extends AppCompatActivity {
 
         while (res2.moveToNext()) {
 
-            pass = res2.getString(0);
+            step_count_goal = res2.getString(0);
         }
 
 
@@ -69,7 +71,7 @@ public class lockapp_activity extends AppCompatActivity {
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
 
-            // Locks/Unlocks apps on click event.
+            // Locks/Unlocks apps with Onclick event.
             @Override
             public void onClick(View view, int position) {
 
@@ -80,7 +82,7 @@ public class lockapp_activity extends AppCompatActivity {
                     model.setLocked(R.drawable.unlock);
                 }
                 else{
-                    db.insertData(model.getPackage_name(),pass);
+                    db.insertData(model.getPackage_name(),step_count_goal);
                     Toast.makeText(lockapp_activity.this,   "App Lock Successfully ", Toast.LENGTH_LONG).show();
                     model.setLocked(R.drawable.lock);
                 }
