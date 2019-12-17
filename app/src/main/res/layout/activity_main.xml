@@ -26,7 +26,7 @@
         android:shadowDy="10"
 
         android:shadowRadius="10"
-        android:text="Lock apps"
+        android:text="@string/lock_apps"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -55,7 +55,7 @@
         android:paddingRight="26dip"
 
 
-        android:text="Set step goal"
+        android:text="@string/set_step_goal"
         android:textColor="@color/colorPrimaryDark"
 
         android:textSize="18sp"
@@ -81,7 +81,7 @@
         android:onClick="showCounter"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
-        android:text="Step Progress"
+        android:text="@string/step_progress"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -104,7 +104,7 @@
         android:onClick="showBadges"
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
-        android:text="Achievements"
+        android:text="@string/achievements"
 
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -132,7 +132,7 @@
 
         android:paddingLeft="30dip"
         android:paddingRight="26dip"
-        android:text="Show Stats"
+        android:text="@string/show_stats"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -152,7 +152,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/show_step_counter2"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/appLogo" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/textView"

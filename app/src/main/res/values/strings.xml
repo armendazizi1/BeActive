@@ -2,4 +2,13 @@
     <string name="app_name">BeActive</string>
     <string name="be_active">BeActive</string>
     <string name="your_goal">Your Goal:</string>
+    <string name="beactive">BeActive</string>
+    <string name="appLogo">appLogo</string>
+    <string name="unlock">Unlock</string>
+    <string name="lock_apps">Lock apps</string>
+    <string name="achievements">Achievements</string>
+    <string name="show_stats">Show Stats</string>
+    <string name="set_step_goal">Set step goal</string>
+    <string name="step_progress">Step Progress</string>
+    <string name="steps">Steps</string>
 </resources>

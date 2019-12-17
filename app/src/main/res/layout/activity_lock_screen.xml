@@ -17,7 +17,7 @@
 
         android:drawableTint="@color/colorPrimaryDark"
         android:fontFamily="sans-serif-medium"
-        android:text="Unlock"
+        android:text="@string/unlock"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/megrim"
-        android:text="BeActive"
+        android:text="@string/beactive"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textSize="36sp"
@@ -51,6 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/unlock_btn"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="@string/appLogo" />
 
 </android.support.constraint.ConstraintLayout>
