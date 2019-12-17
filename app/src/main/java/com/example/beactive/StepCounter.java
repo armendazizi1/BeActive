@@ -63,18 +63,16 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         tv_info2 = findViewById(R.id.tv_info2);
-//        myCount = mPreferences.getInt(COUNT_KEY,0);
+
 
         Cursor res2 = pass_db.getAllData();
 
-//        myCount = 0;
 
         while (res2.moveToNext()) {
 
             pass = res2.getString(0);
         }
 
-//        stats_db.deleteAll();
 
 
         Cursor res = stats_db.getAllData();
