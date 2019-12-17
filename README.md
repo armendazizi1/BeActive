@@ -11,7 +11,7 @@ You need to have Android studio version 4.5 installed on your machine
 
 ## Running the program
 
-From android studio just build the project and run the emulator.
+From Android Studio just build the project and run the emulator.
 
 
 
@@ -40,7 +40,7 @@ android.permission.SYSTEM_ALERT_WINDOW
 android.permission.BROADCAST_PACKAGE_ADDED
 ```
  
-## Provides the following fetuares:
+## Provides the following features:
  
 
 ```
@@ -49,7 +49,7 @@ Count the number of steps
 Update number of steps required to unlock the locked apps
 Shows weekly statistics
 Shows the step progress
-Shows achievements that are badge rewards to the users for surpassing certain number of steps
+Shows achievements that are badge rewards to the users for surpassing a certain number of steps
 ```
  
 
