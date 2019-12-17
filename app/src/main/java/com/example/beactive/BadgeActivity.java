@@ -37,7 +37,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
 
-        tot_steps.setText("Total number of steps: " + (int)total_steps);
+        tot_steps.setText("Total number of steps: " + (int) total_steps);
         tot_distance.setText("Distance travelled so far: " +(int)(total_steps*1.6) +" m");
 
     }

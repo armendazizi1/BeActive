@@ -31,13 +31,13 @@ public class StepCounts_Database extends SQLiteOpenHelper {
     // create table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( password TEXT  )  ");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "( password TEXT  )  ");
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
 
@@ -46,16 +46,15 @@ public class StepCounts_Database extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col1,name);
+        contentValues.put(col1, name);
 
 
-        long result = db.insert(TABLE_NAME, null ,contentValues);
+        long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
 
-        if(result == -1){
+        if (result == -1) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
 
@@ -63,38 +62,31 @@ public class StepCounts_Database extends SQLiteOpenHelper {
 
 
     // read data from table
-    public Cursor getAllData(){
+    public Cursor getAllData() {
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * from "+ TABLE_NAME, null);
+        Cursor res = db.rawQuery("Select * from " + TABLE_NAME, null);
         return res;
     }
 
 
-
-
-
-
     // update data in table
 
-    public boolean updateData(String name, String pass){
+    public boolean updateData(String name, String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        db.update(TABLE_NAME,contentValues, col1+" =?", new String[]{name});
+        db.update(TABLE_NAME, contentValues, col1 + " =?", new String[]{name});
         return true;
     }
 
 
-
     // delete data from table
-    public Integer deleteData(String name){
+    public Integer deleteData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int i = db.delete(TABLE_NAME, col1 +" =?", new String[]{name});
+        int i = db.delete(TABLE_NAME, col1 + " =?", new String[]{name});
         return i;
     }
-
-
 
 
 }

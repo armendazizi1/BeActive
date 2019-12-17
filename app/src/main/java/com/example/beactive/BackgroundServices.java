@@ -29,7 +29,7 @@ import java.util.TreeMap;
 public class BackgroundServices extends Service {
 
     private BroadcastReceiver receiver;
-    public int counter=0;
+    public int counter = 0;
     LockScreen obj = new LockScreen();
     // context is important
     // every gui or view or activity have context
@@ -41,16 +41,15 @@ public class BackgroundServices extends Service {
 
     // flag is used for stopping or running loop check of
     // current app running
-    static  int flag = 0 ;
+    static int flag = 0;
     static int flag2 = 0;
 
     // when any app is launch and it has step counter set on it
     // that app name save in current_app variable
     String current_app = "";
 
-    public BackgroundServices (){}
-
-
+    public BackgroundServices() {
+    }
 
 
     @Override
@@ -58,7 +57,6 @@ public class BackgroundServices extends Service {
         super.onCreate();
         // add context of NotificationService to mContext variable
         mContext = this;
-
 
 
         // oreo used different approach for background services
@@ -73,8 +71,7 @@ public class BackgroundServices extends Service {
     //  oreo api approach
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private void startMyOwnForeground()
-    {
+    private void startMyOwnForeground() {
         String NOTIFICATION_CHANNEL_ID = "example.permanence";
         String channelName = "Background Service";
         NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
@@ -118,6 +115,7 @@ public class BackgroundServices extends Service {
     // set timer of one second repeat itself
     private Timer timer;
     private TimerTask timerTask;
+
     public void startTimer() {
         timer = new Timer();
         timerTask = new TimerTask() {
@@ -159,7 +157,7 @@ public class BackgroundServices extends Service {
                 }
 
 
-                if ((!printForegroundTask().equals("com.example.beactive"))  &&  flag2 == 0 ) {
+                if ((!printForegroundTask().equals("com.example.beactive")) && flag2 == 0) {
                     if ((!printForegroundTask().equals(current_app))) {
 
                         flag = 0;
@@ -176,8 +174,6 @@ public class BackgroundServices extends Service {
 
                     flag = 2;
                 }
-
-
 
 
                 // Log.i("Count", "=========  "+ printForegroundTask());
@@ -200,14 +196,13 @@ public class BackgroundServices extends Service {
     }
 
 
-
     // get string of current app running
     private String printForegroundTask() {
         String currentApp = "NULL";
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
             long time = System.currentTimeMillis();
-            List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY,  time - 1000*1000, time);
+            List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 1000, time);
             if (appList != null && appList.size() > 0) {
                 SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
                 for (UsageStats usageStats : appList) {
@@ -218,7 +213,7 @@ public class BackgroundServices extends Service {
                 }
             }
         } else {
-            ActivityManager am = (ActivityManager)this.getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);
             List<ActivityManager.RunningAppProcessInfo> tasks = am.getRunningAppProcesses();
             currentApp = tasks.get(0).processName;
 

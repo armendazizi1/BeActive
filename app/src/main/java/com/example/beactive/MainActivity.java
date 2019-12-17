@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (pass.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Firs,t set your steps goal ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "First set your steps goal ", Toast.LENGTH_LONG).show();
 
                 } else {
 
@@ -294,17 +294,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Method for the showCounter button
+    // Method for the step progress button
     public void showCounter(View view) {
         startActivity(new Intent(MainActivity.this, StepCounter.class));
         finish();
     }
 
+    // Method for Achievements button
     public void showBadges(View view) {
         startActivity(new Intent(MainActivity.this, BadgeActivity.class));
         finish();
     }
 
+    // Method for show stats method
     public void showStats(View view) {
         startActivity(new Intent(MainActivity.this, StatsActivity.class));
         finish();

@@ -2,6 +2,9 @@ package com.example.beactive;
 
 import android.graphics.drawable.Drawable;
 
+/* +
+    Model of the installed apps List, to perform the Lock/Unlock actions.
+ */
 public class Model {
 
     private String name;

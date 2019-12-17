@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Stats_Database extends SQLiteOpenHelper {
 
 
-
     // database name
     public static final String DATABASE_NAME = "stats_data.db";
     // table name
@@ -31,13 +30,13 @@ public class Stats_Database extends SQLiteOpenHelper {
     // create table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( stats INTEGER, day INTEGER )  ");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "( stats INTEGER, day INTEGER )  ");
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
 
@@ -46,17 +45,16 @@ public class Stats_Database extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col1,stat);
-        contentValues.put(col2,day);
+        contentValues.put(col1, stat);
+        contentValues.put(col2, day);
 
 
-        long result = db.insert(TABLE_NAME, null ,contentValues);
+        long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
 
-        if(result == -1){
+        if (result == -1) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
 
@@ -64,40 +62,34 @@ public class Stats_Database extends SQLiteOpenHelper {
 
 
     // read data from table
-    public Cursor getAllData(){
+    public Cursor getAllData() {
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * from "+ TABLE_NAME, null);
+        Cursor res = db.rawQuery("Select * from " + TABLE_NAME, null);
         return res;
     }
 
 
-
-
-
-
     // update data in table
 
-    public boolean updateData(int day, int stats){
+    public boolean updateData(int day, int stats) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col1,stats);
-        db.update(TABLE_NAME,contentValues, col2+" =?", new String[]{String.valueOf(day)});
+        contentValues.put(col1, stats);
+        db.update(TABLE_NAME, contentValues, col2 + " =?", new String[]{String.valueOf(day)});
         return true;
     }
 
 
-
-
     // delete data from table
-    public Integer deleteData(int day){
+    public Integer deleteData(int day) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int i = db.delete(TABLE_NAME, col2 +" =?",new String[]{String.valueOf(day)});
+        int i = db.delete(TABLE_NAME, col2 + " =?", new String[]{String.valueOf(day)});
         return i;
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         SQLiteDatabase db = this.getWritableDatabase();
-       db.execSQL("delete from "+ TABLE_NAME);
+        db.execSQL("delete from " + TABLE_NAME);
     }
 }

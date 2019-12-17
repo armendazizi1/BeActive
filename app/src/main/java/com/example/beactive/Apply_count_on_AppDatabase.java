@@ -23,71 +23,66 @@ public class Apply_count_on_AppDatabase extends SQLiteOpenHelper {
     // constructor
     public Apply_count_on_AppDatabase(Context context) {
         super(context, DATABASE_NAME, null, 1);
-       // SQLiteDatabase db = this.getWritableDatabase();
+        // SQLiteDatabase db = this.getWritableDatabase();
 
     }
 
     // create table
     @Override
     public void onCreate(SQLiteDatabase db) {
-     db.execSQL("CREATE TABLE "  + TABLE_NAME + "( package_name TEXT PRIMARY KEY , password TEXT )  ");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "( package_name TEXT PRIMARY KEY , password TEXT )  ");
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-     db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
 
-     // insert data into table
+    // insert data into table
     public boolean insertData(String name, String pass) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col1,name);
-        contentValues.put(col2,pass);
+        contentValues.put(col1, name);
+        contentValues.put(col2, pass);
 
-        long result = db.insert(TABLE_NAME, null ,contentValues);
+        long result = db.insert(TABLE_NAME, null, contentValues);
         db.close();
 
-        if(result == -1){
+        if (result == -1) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
 
     }
 
 
-     // read data from table
-    public Cursor getAllData(){
+    // read data from table
+    public Cursor getAllData() {
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * from "+ TABLE_NAME, null);
+        Cursor res = db.rawQuery("Select * from " + TABLE_NAME, null);
         return res;
     }
 
 
-
-
-
-
     // update data in table
-    public boolean updateData(String name, String pass){
+    public boolean updateData(String name, String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(col2,pass);
-        db.update(TABLE_NAME,contentValues, col1+" =?", new String[]{name});
+        contentValues.put(col2, pass);
+        db.update(TABLE_NAME, contentValues, col1 + " =?", new String[]{name});
         return true;
     }
 
 
     // delete data from table
-    public Integer deleteData(String name){
+    public Integer deleteData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int i = db.delete(TABLE_NAME, col1 +" =?", new String[]{name});
+        int i = db.delete(TABLE_NAME, col1 + " =?", new String[]{name});
         return i;
     }
 

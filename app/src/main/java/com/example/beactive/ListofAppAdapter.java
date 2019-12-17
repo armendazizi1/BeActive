@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.List;
 
 public class ListofAppAdapter extends RecyclerView.Adapter<ListofAppAdapter.MyViewHolder> {
@@ -14,7 +15,7 @@ public class ListofAppAdapter extends RecyclerView.Adapter<ListofAppAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView app_name;
-        public ImageView app_icon,status;
+        public ImageView app_icon, status;
 
         public MyViewHolder(View view) {
             super(view);

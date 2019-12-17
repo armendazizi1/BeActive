@@ -74,13 +74,13 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         }
 
 
-
         Cursor res = stats_db.getAllData();
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
             total_count_so_dar += stats_count;
             today = res.getInt(1);
-        };
+        }
+        ;
 
 
         // we added +10 to the current_day to distinguish it from the other days.
@@ -145,16 +145,16 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         int current_minutes = cal.get(Calendar.MINUTE);
         int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
-        String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 //        Toast.makeText(this, String.valueOf(current_day + today), Toast.LENGTH_SHORT).show();
 
         if (current_day != today) {
-            stats_db.updateData(current_day,totalCounter);
+            stats_db.updateData(current_day, totalCounter);
             total_count_so_dar += totalCounter;
 
 
             // again we add +10 to distinguish from the other days
-            stats_db.updateData(today+10, current_day+10);
+            stats_db.updateData(today + 10, current_day + 10);
             today = current_day;
         }
 

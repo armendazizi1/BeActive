@@ -148,7 +148,7 @@ public class lockapp_activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(lockapp_activity.this,MainActivity.class));
+        startActivity(new Intent(lockapp_activity.this, MainActivity.class));
         finish();
 
     }
