@@ -37,7 +37,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     private int total_count_so_dar = 0;
 
-    private int minutes;
+    private int today;
 
     String v1, v2;
 
@@ -101,13 +101,12 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
             total_count_so_dar += stats_count;
+            today = res.getInt(1);
         }
 
 
-        Date date = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        minutes = cal.get(Calendar.MINUTE);
+        // we added +10 to the current_day to distinguish it from the other days.
+        today -= 10;
 
 
     }
@@ -154,13 +153,14 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int current_minutes = cal.get(Calendar.MINUTE);
+        int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
-        // update the counter after 2 minutes
-        if (current_minutes != minutes) {
-//            stats_db.insertData(step_counter);
+
+        if (current_day != today) {
+            stats_db.updateData(current_day,step_counter);
             total_count_so_dar += step_counter;
-//            Toast.makeText(this, String.valueOf(current_minutes), Toast.LENGTH_SHORT).show();
-            minutes = current_minutes;
+            stats_db.updateData(today+10, current_day+10);
+            today = current_day;
         }
 
 

@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,8 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     Button lockapp , update_pass;
     StepCounts_Database db = new StepCounts_Database(this);
     List<String> pass = new ArrayList<>();
+
+    Stats_Database stats_db = new Stats_Database(this);
+    List<Pair<Integer,Integer>>  stats = new ArrayList<>();
     String m_Text="";
     Context cn;
 
@@ -59,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
         Cursor res = db.getAllData();
         while (res.moveToNext()) {
             pass.add(res.getString(0));
+        }
+
+        Cursor res2 = stats_db.getAllData();
+        while (res2.moveToNext()) {
+            stats.add(new Pair <Integer,Integer> (res2.getInt(1), res2.getInt(0)) );
         }
 
         lockapp.setOnClickListener(new View.OnClickListener() {
@@ -252,6 +263,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        }
+
+        if(stats.isEmpty()){
+            Toast.makeText(this, String.valueOf(111111), Toast.LENGTH_SHORT).show();
+
+            for (int i = 1; i<8; i++){
+                stats_db.insertData(i,10);
+                Log.d("Armned","\n\nenteredHERE \n\n\n");
+                stats.add(new Pair<Integer, Integer>(i,10));
+            }
+
+            Date date = new Date();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            int current_day = cal.get(Calendar.DAY_OF_WEEK);
+
+            stats_db.insertData((current_day+10),10);
         }
 
 

@@ -31,7 +31,7 @@ public class Stats_Database extends SQLiteOpenHelper {
     // create table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( stats INTEGER, day TEXT )  ");
+        db.execSQL("CREATE TABLE "  + TABLE_NAME + "( stats INTEGER, day INTEGER )  ");
     }
 
 
@@ -42,12 +42,12 @@ public class Stats_Database extends SQLiteOpenHelper {
 
 
     // insert data into table
-    public boolean insertData(int stat, String date) {
+    public boolean insertData(int day, int stat) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(col1,stat);
-        contentValues.put(col2,date);
+        contentValues.put(col2,day);
 
 
         long result = db.insert(TABLE_NAME, null ,contentValues);
@@ -78,11 +78,11 @@ public class Stats_Database extends SQLiteOpenHelper {
 
     // update data in table
 
-    public boolean updateData(int stat, String pass){
+    public boolean updateData(int day, int stats){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-
-        db.update(TABLE_NAME,contentValues, col1+" =?", new String[]{String.valueOf(stat)});
+        contentValues.put(col1,stats);
+        db.update(TABLE_NAME,contentValues, col2+" =?", new String[]{String.valueOf(day)});
         return true;
     }
 
@@ -90,9 +90,9 @@ public class Stats_Database extends SQLiteOpenHelper {
 
 
     // delete data from table
-    public Integer deleteData(String day){
+    public Integer deleteData(int day){
         SQLiteDatabase db = this.getWritableDatabase();
-        int i = db.delete(TABLE_NAME, col2 +" =?",new String[]{day});
+        int i = db.delete(TABLE_NAME, col2 +" =?",new String[]{String.valueOf(day)});
         return i;
     }
 

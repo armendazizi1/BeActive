@@ -47,9 +47,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     Stats_Database stats_db = new Stats_Database(this);
 
     private int stats_count = 0;
-    private int minutes;
 
     private int total_count_so_dar = 0;
+    private int today;
 
 
     @Override
@@ -81,7 +81,12 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
             total_count_so_dar += stats_count;
-        }
+            today = res.getInt(1);
+        };
+
+
+        // we added +10 to the current_day to distinguish it from the other days.
+        today -= 10;
 
 
         progressBarra = findViewById(R.id.progressBarra);
@@ -90,13 +95,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
         tv_info2.setText("Your Goal " + pass);
 
-
-        // code for daily statistics
-
-        Date date = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        minutes = cal.get(Calendar.MINUTE);
 
     }
 
@@ -150,17 +148,20 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
         String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+//        Toast.makeText(this, String.valueOf(current_day + today), Toast.LENGTH_SHORT).show();
 
-        // update the counter after 2 minutes
-        if (current_minutes != minutes) {
-            stats_db.insertData(totalCounter,days[current_day]);
+        if (current_day != today) {
+            stats_db.updateData(current_day,totalCounter);
             total_count_so_dar += totalCounter;
-            Toast.makeText(this, String.valueOf(current_minutes), Toast.LENGTH_SHORT).show();
-            minutes = current_minutes;
+
+
+            // again we add +10 to distinguish from the other days
+            stats_db.updateData(today+10, current_day+10);
+            today = current_day;
         }
 
         progressBarra.setProgress(totalCounter);
-        progressBarra.setSecondaryProgress(100);
+        progressBarra.setSecondaryProgress(Integer.parseInt(pass));
 
     }
 
