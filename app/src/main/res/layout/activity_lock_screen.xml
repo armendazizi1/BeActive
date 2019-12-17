@@ -16,7 +16,7 @@
         android:background="@color/colorPrimaryDark"
 
         android:drawableTint="@color/colorPrimaryDark"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="sans-serif-medium"
         android:text="Unlock"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
