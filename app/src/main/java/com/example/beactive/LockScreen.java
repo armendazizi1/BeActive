@@ -30,7 +30,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
     TextView status;
     public int v_int;
 
-    public int step_counter=0;
+    public int step_counter = 0;
     private int stats_count = 0;
 
     Stats_Database stats_db = new Stats_Database(this);
@@ -39,8 +39,9 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
 
     private int minutes;
 
-    String v1 , v2, v3;
-    public LockScreen(){
+    String v1, v2;
+
+    public LockScreen() {
 
     }
 
@@ -59,7 +60,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
-            v1 = extras.getString("password");
+            v1 = extras.getString("steps");
             v2 = extras.getString("pack");
 
 
@@ -75,22 +76,21 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
                 v_int = (int) Integer.parseInt(v1);
 
 //                if (v1.equals(t1.getText().toString())) {
-                if (v_int <= step_counter){
+                if (v_int <= step_counter) {
 
                     Intent launchIntent = getPackageManager().getLaunchIntentForPackage(v2);
                     launchIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(launchIntent);
                     finish();
-                    Toast.makeText(LockScreen.this,   "You reached your Goal!" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(LockScreen.this, "You reached your Goal!", Toast.LENGTH_LONG).show();
 
 
-                }
-                else{
-                    Toast.makeText(LockScreen.this,   (v_int - step_counter)+" steps to go" , Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(LockScreen.this, (v_int - step_counter) + " steps to go", Toast.LENGTH_LONG).show();
 //                    t1.setText("");
                 }
 
-        }
+            }
 
         });
 
@@ -128,7 +128,6 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         }
 
 
-
     }
 
     // For the step counter
@@ -148,7 +147,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
     public void onSensorChanged(SensorEvent event) {
 
 //        Toast.makeText(this,String.valueOf(event.values[0]),Toast.LENGTH_SHORT).show();
-        step_counter = (int)Double.parseDouble(String.valueOf(event.values[0])) - total_count_so_dar;
+        step_counter = (int) Double.parseDouble(String.valueOf(event.values[0])) - total_count_so_dar;
 
 
         Date date = new Date();
