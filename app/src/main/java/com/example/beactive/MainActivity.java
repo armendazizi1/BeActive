@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
             update_pass.setText("Set number of steps");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(cn);
-            builder.setTitle("Set steps goal ");
+            builder.setTitle("Update steps goal ");
 
 
             // Set up the input
@@ -247,20 +247,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (stats.isEmpty()) {
-            Toast.makeText(this, String.valueOf(111111), Toast.LENGTH_SHORT).show();
 
             for (int i = 1; i < 8; i++) {
-                stats_db.insertData(i, 10);
-                stats.add(new Pair<Integer, Integer>(i, 10));
+                stats_db.insertData(i, 0);
+                stats.add(new Pair<Integer, Integer>(i, 0));
             }
 
             Date date = new Date();
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             int current_day = cal.get(Calendar.DAY_OF_WEEK);
-            stats.add(new Pair<Integer, Integer>(current_day + 10, 10));
+            stats.add(new Pair<Integer, Integer>(current_day + 10, 0));
 
-            stats_db.insertData((current_day + 10), 10);
+            stats_db.insertData((current_day + 10), 0);
         }
 
 

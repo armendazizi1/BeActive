@@ -36,12 +36,12 @@ public class StatsActivity extends AppCompatActivity {
         List<Integer> stats_days = new ArrayList<>();
 
 
-        for (int i = 1; i < 8; i++) {
-            stats_db.updateData(i, 30);
-        }
+//        for (int i = 1; i < 8; i++) {
+//            stats_db.updateData(i, 30);
+//        }
 
 
-//        update data for the demo
+// //       update data for the demo
 //
 //        stats_db.updateData(1,300);
 //        stats_db.updateData(2,400);
