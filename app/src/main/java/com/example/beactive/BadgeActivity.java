@@ -18,7 +18,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
     private String sharedPrefFile = "com.example.StepCounter";
     SensorManager sensorManager;
     boolean running = false;
-    private float total_steps = 100;
+    private float total_steps = 0;
     TextView tot_steps;
     TextView tot_distance;
 
@@ -36,8 +36,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
 
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
-
-        tot_steps.setText("Total number of steps: " + (int) total_steps);
+        tot_steps.setText("Total number of steps: " + (int)total_steps);
         tot_distance.setText("Distance travelled so far: " +(int)(total_steps*1.6) +" m");
 
     }
@@ -80,47 +79,49 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-//        this.total_steps = event.values[0];
+        this.total_steps = event.values[0];
         int b = (int) event.values[0];
-        if (b > 80) {
+        if (b > 10) {
             ImageView goldenBridge = findViewById(R.id.GBridge);
             goldenBridge.setImageResource(R.drawable.bridge_unlock);
         }
-        if (b > 90) {
+        if (b > 20) {
             ImageView goldenBridge = findViewById(R.id.Bahamas);
             goldenBridge.setImageResource(R.drawable.beach_unlock);
         }
-        if (b > 100) {
+        if (b > 30) {
             ImageView goldenBridge = findViewById(R.id.Route66);
             goldenBridge.setImageResource(R.drawable.desert_unlock);
         }
-        if (b > 110) {
+        if (b > 40) {
             ImageView goldenBridge = findViewById(R.id.K2);
             goldenBridge.setImageResource(R.drawable.mountain_unlock);
         }
-        if (b > 120) {
+        if (b > 50) {
             ImageView goldenBridge = findViewById(R.id.Waterfall);
             goldenBridge.setImageResource(R.drawable.waterfall_unlock);
         }
-        if (b > 130) {
+        if (b > 60) {
             ImageView goldenBridge = findViewById(R.id.Sahara);
             goldenBridge.setImageResource(R.drawable.desert_unlock_2);
         }
+//        if (b > 2737 * 1.6) {
+//            ImageView goldenBridge = findViewById(R.id.GBridge);
+//            goldenBridge.setImageResource(R.drawable.bridge_unlock);
+//        }
+//        if (b > 2737 * 1.6) {
+//            ImageView goldenBridge = findViewById(R.id.Bahamas);
+//            goldenBridge.setImageResource(R.drawable.beach_unlock);
+//        }
+//        if (b > 2737 * 1.6) {
+//            ImageView goldenBridge = findViewById(R.id.Route66);
+//            goldenBridge.setImageResource(R.drawable.desert_unlock);
+//        }
 
-
-
-        if (b > 2737 * 1.6) {
-            ImageView goldenBridge = findViewById(R.id.GBridge);
-            goldenBridge.setImageResource(R.drawable.bridge_unlock);
-        }
-        if (b > 2737 * 1.6) {
-            ImageView goldenBridge = findViewById(R.id.Bahamas);
-            goldenBridge.setImageResource(R.drawable.beach_unlock);
-        }
-        if (b > 2737 * 1.6) {
-            ImageView goldenBridge = findViewById(R.id.Route66);
-            goldenBridge.setImageResource(R.drawable.desert_unlock);
-        }
+        tot_steps = findViewById(R.id.total_steps);
+        tot_distance = findViewById(R.id.Total_distance);
+        tot_steps.setText("Total number of steps: " + (int)total_steps);
+        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*1.6) +" m");
     }
 
 
