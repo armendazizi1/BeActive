@@ -38,19 +38,6 @@ public class StatsActivity extends AppCompatActivity {
         List<Integer> stats_days = new ArrayList<>();
 
 
-
-
-// //       update data for the demo
-//
-//        stats_db.updateData(1,300);
-//        stats_db.updateData(2,400);
-//        stats_db.updateData(3,355);
-//        stats_db.updateData(4,520);
-//        stats_db.updateData(5,650);
-//        stats_db.updateData(6,340);
-//        stats_db.updateData(7,667);
-// //       stats_db.updateData(11,5);
-
         Cursor res = stats_db.getAllData();
         while (res.moveToNext()) {
             stats.add(res.getInt(0));

@@ -26,8 +26,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
 
 
-
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);     //  Fixed Portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);     //  Fixed Portrait orientation
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badge);
@@ -36,8 +35,8 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
 
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
-        tot_steps.setText("Total number of steps: " + (int)total_steps);
-        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*0.7) +" m");
+        tot_steps.setText("Total number of steps: " + (int) total_steps);
+        tot_distance.setText("Distance travelled so far: " + (int) (total_steps * 0.7) + " m");
 
     }
 
@@ -72,7 +71,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(BadgeActivity.this,MainActivity.class));
+        startActivity(new Intent(BadgeActivity.this, MainActivity.class));
         finish();
 
     }
@@ -81,49 +80,37 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
     public void onSensorChanged(SensorEvent event) {
         this.total_steps = event.values[0];
         int b = (int) event.values[0];
-        if (b > 10) {
+        if (b > 1070 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.Bahamas);
             goldenBridge.setImageResource(R.drawable.beach_unlock);
         }
-        if (b > 20) {
+        if (b > 2737 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.GBridge);
             goldenBridge.setImageResource(R.drawable.bridge_unlock);
         }
-        if (b > 30) {
+        if (b > 3940 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.Route66);
             goldenBridge.setImageResource(R.drawable.desert_unlock);
         }
-        if (b > 40) {
+        if (b > 8611 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.K2);
             goldenBridge.setImageResource(R.drawable.mountain_unlock);
         }
-        if (b > 115) {
+        if (b > 11399 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.Waterfall);
             goldenBridge.setImageResource(R.drawable.waterfall_unlock);
         }
-        if (b > 200) {
+        if (b > 15940 * 1.3) {
             ImageView goldenBridge = findViewById(R.id.Sahara);
             goldenBridge.setImageResource(R.drawable.desert_unlock_2);
         }
-//        if (b > 2737 * 0.7) {
-//            ImageView goldenBridge = findViewById(R.id.GBridge);
-//            goldenBridge.setImageResource(R.drawable.bridge_unlock);
-//        }
-//        if (b > 2737 * 0.7) {
-//            ImageView goldenBridge = findViewById(R.id.Bahamas);
-//            goldenBridge.setImageResource(R.drawable.beach_unlock);
-//        }
-//        if (b > 2737 * 0.7) {
-//            ImageView goldenBridge = findViewById(R.id.Route66);
-//            goldenBridge.setImageResource(R.drawable.desert_unlock);
-//        }
+
 
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
-        tot_steps.setText("Total number of steps: " + (int)total_steps);
-        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*0.7) +" m");
+        tot_steps.setText("Total number of steps: " + (int) total_steps);
+        tot_distance.setText("Distance travelled so far: " + (int) (total_steps * 0.7) + " m");
     }
-
 
 
     @Override

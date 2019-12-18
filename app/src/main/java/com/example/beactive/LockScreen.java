@@ -105,7 +105,6 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         total_count_so_dar -= today;
 
 
-
     }
 
     // For the step counter
@@ -155,7 +154,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         if (current_day != today) {
             stats_db.updateData(current_day, step_counter);
             total_count_so_dar += step_counter;
-            stats_db.updateData(11, current_day );
+            stats_db.updateData(11, current_day);
             today = current_day;
         }
 
