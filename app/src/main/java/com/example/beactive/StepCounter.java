@@ -1,6 +1,7 @@
 package com.example.beactive;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 
@@ -19,6 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class StepCounter extends AppCompatActivity implements SensorEventListener {
+
 
     private ProgressBar progressBarra;
 
@@ -54,6 +56,8 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);     //  Fixed Portrait orientation
+
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.activity_step_counter);
