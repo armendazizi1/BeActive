@@ -98,12 +98,12 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
             total_count_so_dar += stats_count;
-            today = res.getInt(1);
+            today = res.getInt(0);
         }
 
 
-        // we added +10 to the current_day to distinguish it from the other days.
-        today -= 10;
+        total_count_so_dar -= today;
+
 
 
     }
@@ -155,7 +155,7 @@ public class LockScreen extends AppCompatActivity implements SensorEventListener
         if (current_day != today) {
             stats_db.updateData(current_day, step_counter);
             total_count_so_dar += step_counter;
-            stats_db.updateData(today + 10, current_day + 10);
+            stats_db.updateData(11, current_day );
             today = current_day;
         }
 

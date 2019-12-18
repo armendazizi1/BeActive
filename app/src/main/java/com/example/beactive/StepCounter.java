@@ -78,13 +78,12 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         while (res.moveToNext()) {
             stats_count = res.getInt(0);
             total_count_so_dar += stats_count;
-            today = res.getInt(1);
+            today = res.getInt(0);
         }
-        ;
 
 
+        total_count_so_dar -= today;
         // we added +10 to the current_day to distinguish it from the other days.
-        today -= 10;
 
 
         progressBarra = findViewById(R.id.progressBarra);
@@ -146,7 +145,6 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         int current_day = cal.get(Calendar.DAY_OF_WEEK);
 
         String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-//        Toast.makeText(this, String.valueOf(current_day + today), Toast.LENGTH_SHORT).show();
 
         if (current_day != today) {
             stats_db.updateData(current_day, totalCounter);
@@ -154,7 +152,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
 
             // again we add +10 to distinguish from the other days
-            stats_db.updateData(today + 10, current_day + 10);
+            stats_db.updateData(11, current_day );
             today = current_day;
         }
 
