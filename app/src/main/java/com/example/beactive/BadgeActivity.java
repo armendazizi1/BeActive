@@ -37,7 +37,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
         tot_steps.setText("Total number of steps: " + (int)total_steps);
-        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*1.6) +" m");
+        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*0.7) +" m");
 
     }
 
@@ -82,12 +82,12 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
         this.total_steps = event.values[0];
         int b = (int) event.values[0];
         if (b > 10) {
-            ImageView goldenBridge = findViewById(R.id.GBridge);
-            goldenBridge.setImageResource(R.drawable.bridge_unlock);
-        }
-        if (b > 20) {
             ImageView goldenBridge = findViewById(R.id.Bahamas);
             goldenBridge.setImageResource(R.drawable.beach_unlock);
+        }
+        if (b > 20) {
+            ImageView goldenBridge = findViewById(R.id.GBridge);
+            goldenBridge.setImageResource(R.drawable.bridge_unlock);
         }
         if (b > 30) {
             ImageView goldenBridge = findViewById(R.id.Route66);
@@ -105,15 +105,15 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
             ImageView goldenBridge = findViewById(R.id.Sahara);
             goldenBridge.setImageResource(R.drawable.desert_unlock_2);
         }
-//        if (b > 2737 * 1.6) {
+//        if (b > 2737 * 0.7) {
 //            ImageView goldenBridge = findViewById(R.id.GBridge);
 //            goldenBridge.setImageResource(R.drawable.bridge_unlock);
 //        }
-//        if (b > 2737 * 1.6) {
+//        if (b > 2737 * 0.7) {
 //            ImageView goldenBridge = findViewById(R.id.Bahamas);
 //            goldenBridge.setImageResource(R.drawable.beach_unlock);
 //        }
-//        if (b > 2737 * 1.6) {
+//        if (b > 2737 * 0.7) {
 //            ImageView goldenBridge = findViewById(R.id.Route66);
 //            goldenBridge.setImageResource(R.drawable.desert_unlock);
 //        }
@@ -121,7 +121,7 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
         tot_steps = findViewById(R.id.total_steps);
         tot_distance = findViewById(R.id.Total_distance);
         tot_steps.setText("Total number of steps: " + (int)total_steps);
-        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*1.6) +" m");
+        tot_distance.setText("Distance travelled so far: " +(int)(total_steps*0.7) +" m");
     }
 
 

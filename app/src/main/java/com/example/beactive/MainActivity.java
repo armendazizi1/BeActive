@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!isAccessGranted()) {
             new AlertDialog.Builder(this)
-                    .setTitle("USAGE_STATS Permission")
+                    .setTitle("USAGE_STATS Permission - 50SENSE")
                     .setMessage("Allow USAGE_STATS Permission in Setting")
                     .setPositiveButton("Allow", new DialogInterface.OnClickListener() {
                         @Override

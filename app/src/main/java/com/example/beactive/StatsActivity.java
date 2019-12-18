@@ -50,6 +50,7 @@ public class StatsActivity extends AppCompatActivity {
 //        stats_db.updateData(5,650);
 //        stats_db.updateData(6,340);
 //        stats_db.updateData(7,667);
+// //       stats_db.updateData(11,5);
 
         Cursor res = stats_db.getAllData();
         while (res.moveToNext()) {
