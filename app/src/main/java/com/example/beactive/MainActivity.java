@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             int current_day = cal.get(Calendar.DAY_OF_WEEK);
-            stats.add(new Pair<Integer, Integer>(current_day + 10, 0));
+            stats.add(new Pair<Integer, Integer>(11, current_day));
 
             // hardcoded 11 to distinguish the current day from other days
             stats_db.insertData(11, current_day);
