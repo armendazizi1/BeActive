@@ -83,7 +83,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
 
         total_count_so_dar -= today;
-        // we added +10 to the current_day to distinguish it from the other days.
+
 
 
         progressBarra = findViewById(R.id.progressBarra);

@@ -97,11 +97,11 @@ public class BadgeActivity extends AppCompatActivity implements SensorEventListe
             ImageView goldenBridge = findViewById(R.id.K2);
             goldenBridge.setImageResource(R.drawable.mountain_unlock);
         }
-        if (b > 50) {
+        if (b > 115) {
             ImageView goldenBridge = findViewById(R.id.Waterfall);
             goldenBridge.setImageResource(R.drawable.waterfall_unlock);
         }
-        if (b > 60) {
+        if (b > 200) {
             ImageView goldenBridge = findViewById(R.id.Sahara);
             goldenBridge.setImageResource(R.drawable.desert_unlock_2);
         }

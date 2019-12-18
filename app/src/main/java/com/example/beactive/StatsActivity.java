@@ -2,11 +2,13 @@ package com.example.beactive;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.os.Bundle;
@@ -36,9 +38,6 @@ public class StatsActivity extends AppCompatActivity {
         List<Integer> stats_days = new ArrayList<>();
 
 
-//        for (int i = 1; i < 8; i++) {
-//            stats_db.updateData(i, 30);
-//        }
 
 
 // //       update data for the demo
@@ -85,7 +84,7 @@ public class StatsActivity extends AppCompatActivity {
         BarData data = new BarData(labels, bardataset);
         barChart.setData(data); // set the data and list of labels into chart
         barChart.setDescription("AVG Step counts per day: " + sum / 7);  // set the description
-//        bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        bardataset.setColors(Collections.singletonList(Color.parseColor("#5F8BD3")));
         barChart.animateY(2000);
 
     }

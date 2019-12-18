@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!isAccessGranted()) {
             new AlertDialog.Builder(this)
-                    .setTitle("USAGE_STATS Permission - 50SENSE")
+                    .setTitle("USAGE_STATS Permission")
                     .setMessage("Allow USAGE_STATS Permission in Setting")
                     .setPositiveButton("Allow", new DialogInterface.OnClickListener() {
                         @Override
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (pass.isEmpty()) {
 
 
-            update_pass.setText("Set number of steps");
+            update_pass.setText("Set step goal");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(cn);
             builder.setTitle("Update steps goal ");
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                         boolean tt = db.insertData(m_Text);
                         pass.add(m_Text);
                         Toast.makeText(MainActivity.this, "Steps goal set successfully " + m_Text, Toast.LENGTH_LONG).show();
-                        update_pass.setText("Update steps goal ");
+                        update_pass.setText("Set step goal");
 
                     }
 
@@ -252,6 +252,14 @@ public class MainActivity extends AppCompatActivity {
                 stats_db.insertData(i, 0);
                 stats.add(new Pair<Integer, Integer>(i, 0));
             }
+//              just for the demo
+//            stats_db.updateData(1,300);
+//            stats_db.updateData(2,400);
+//            stats_db.updateData(3,200);
+//            stats_db.updateData(4,400);
+//            stats_db.updateData(5,650);
+//            stats_db.updateData(6,500);
+//            stats_db.updateData(7,600);
 
             Date date = new Date();
             Calendar cal = Calendar.getInstance();
